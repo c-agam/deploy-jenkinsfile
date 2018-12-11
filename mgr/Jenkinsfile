@@ -3,6 +3,10 @@ node {
         echo 'Checkout'
         git branch: 'master' ,credentialsId: '1f1cba7c-f08e-4e21-95a3-244b75cbe861', url: 'https://zul@gtr.qmcai.com/qmbd/mgr.git'
     }
+    stage('Maven Build') {
+        echo 'mvn build'
+        sh 'mvn clean package -ptest -Dmaven.test.skip=true'
+    }
     stage('Build Image') {
         echo 'mvn build'
     }
