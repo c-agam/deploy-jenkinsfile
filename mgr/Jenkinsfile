@@ -1,11 +1,17 @@
 node {
-    stage('Build') {
-        echo 'Building....'
+    stage('Checkout') {
+        steps {
+            echo 'Checkout'
+        }
     }
-    stage('Test') {
-        echo 'Testing....'
+    stage('Build Image') {
+        steps {
+            step {
+                echo 'mvn build'
+            }
+        }
     }
-    stage('Deploy') {
-        echo 'Deploying....'
+    stage('Push Image') {
+        echo 'Push Image'
     }
 }
