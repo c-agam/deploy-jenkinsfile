@@ -1,13 +1,10 @@
 node {
     stage('Checkout') {
-        steps {
-            echo 'Checkout'
-        }
+        echo 'Checkout'
+        git branch: 'master' ,credentialsId: '1f1cba7c-f08e-4e21-95a3-244b75cbe861', url: 'https://zul@gtr.qmcai.com/qmbd/mgr.git'
     }
     stage('Build Image') {
-        steps {
-            echo 'mvn build'
-        }
+        echo 'mvn build'
     }
     stage('Push Image') {
         echo 'Push Image'
