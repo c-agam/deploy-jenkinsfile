@@ -9,7 +9,7 @@ node {
         sh '''
             cat << EOF > Dockerfile
             FROM registry.cn-hangzhou.aliyuncs.com/zul/tomcat:v1
-            cp target/*.war /opt/app/ROOT.war
+            COPY target/*.war /opt/app/ROOT.war
             EOF
            '''
         sh '''
