@@ -1,12 +1,15 @@
 node {
     stage('Checkout') {
-        git branch: 'master' ,credentialsId: '....', url: 'https://zul@gtr.qmcai.com/qmbd/mgr.git'
+        git branch: 'master' ,credentialsId: '1f1cba7c-f08e-4e21-95a3-244b75cbe861', url: 'https://zul@gtr.qmcai.com/qmbd/mgr.git'
     }
     stage('Maven Build') {
         sh 'mvn clean package -Ptest -Dmaven.test.skip=true'
     }
     stage('Build Image') {
-        withDockerRegisty()
+        sh 'cat << EOF > Dockerfile
+            hahah
+            EOF
+            '
     }
     stage('Push Image') {
         echo 'Push Image'
