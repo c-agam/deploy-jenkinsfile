@@ -6,10 +6,11 @@ node {
         sh 'mvn clean package -Ptest -Dmaven.test.skip=true'
     }
     stage('Build Image') {
-        sh 'cat << EOF > Dockerfile
+        sh '''
+            cat << EOF > Dockerfile
             hahah
             EOF
-            '
+           '''
     }
     stage('Push Image') {
         echo 'Push Image'
