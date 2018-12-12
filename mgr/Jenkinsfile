@@ -8,8 +8,12 @@ node {
     stage('Build Image') {
         sh '''
             cat << EOF > Dockerfile
-            hahah
+            FROM registry.cn-hangzhou.aliyuncs.com/zul/tomcat:v1
+            cp target/*.war /opt/app/ROOT.war
             EOF
+           '''
+        sh '''
+            docker build -t registry.cn-hangzhou.aliyuncs.com/zul/mgr:v1
            '''
     }
     stage('Push Image') {
