@@ -1,9 +1,11 @@
 node {
+
     stage('Build Image') {
         sh '''
             cat << EOF > Dockerfile
             FROM registry.cn-hangzhou.aliyuncs.com/zul/tomcat:v1
             COPY target/*.war /opt/app/ROOT.war
+            USER root
            '''
         sh '''
             docker build -t registry.cn-hangzhou.aliyuncs.com/zul/mgr:v1 .
